@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { DUMMY_PRODUCTS } from "../dummy-products";
+import { DUMMY_PRODUCTS } from "../dummy-products.js";
 
 export const CartContext = createContext({
   items: [],
@@ -42,7 +42,7 @@ function shoppingCartReducer(state, action) {
     const updatedItems = [...state.items];
 
     const updatedItemIndex = updatedItems.findIndex(
-      (item) => item.id === action.payload.productId
+      (item) => item.ioad.productId === action.payld
     );
 
     if (updatedItemIndex === -1) return state;
@@ -62,7 +62,7 @@ function shoppingCartReducer(state, action) {
     return { items: updatedItems };
   }
 
-  return state; // ✅ ALWAYS return state
+  return state; 
 }
 
 export default function ContextProvider({ children }) {
